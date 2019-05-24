@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>FCC ISQA Project - Personal Library</title>
+    <meta name="description" content="Personal Library">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/style2.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" 
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </head>
+  
+  <body>
+    <div id="container">
+      <div id="displaySection">
+        <a id="back" href="/">Back</a>
+        <header>
+          <h1>Personal Library</h1>
+        </header>
+        <h2 id="APIheading">Test API responses</h2>
+        <br>
+        <div class="forms">
+          <form action="/api/books" method="post" class="border">
+            <h4>POST to /api/books</h4><br>
+            Book Title: <input type="text" name="title" value="" style="width: 81%" required><br>
+            <button type="submit" class="btn">Add Book</button>
+          </form>
+          
+          <form action="/api/books" method="get" class="border">
+            <h4>GET /api/books</h4><br>
+            <button type="submit" class="btn">Get All books</button>
+          </form>  
+<!--        </div>
+        <br>
+        <div class="forms">-->
+          <form action="" method="post" id="commentTest" class="border">
+            <h4>POST to /api/books/{bookid}</h4><br>
+            Book Id: &nbsp;&nbsp;&nbsp;<input type="text" name="id" value="" id="bookid" style="width: 81%;" required><br>
+            Comment: <input type="text" name="comment" value="" style="width: 81%;" required><br>
+            <button type="submit" class="btn">Add Comment</button>
+          </form>
+
+          <form action="" method="get" id="bookDetails" class="border">
+            <h4>GET /api/books/{bookid}</h4><br>
+            Book Id: <input type="text" name="id" value="" id="bookid2" style="width: 81%;" required><br>
+            <button type="submit" class="btn">Get book details</button>
+          </form>  
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        $('#commentTest').submit(function(){
+          var id = $('#bookid').val();
+          $(this).attr('action', "/api/books/" + id);
+        });
+
+        $('#bookDetails').submit(function(){
+          var id = $('#bookid2').val();
+          $(this).attr('action', "/api/books/" + id);
+        });
+
+      });
+   </script>
+  </body>
+</html>

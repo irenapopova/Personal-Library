@@ -1,0 +1,260 @@
+:root {
+  --color-background: #7c6d6b;
+  --color-yellow: #f0e400;
+  --color-gray: #d9d9d9;
+  --list-top: 20%;
+  --table-width: 600px;
+  --color-maroon: #862d2d;
+  --color-blue: #4d8080;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background);
+  height: 100%;
+}
+
+#container {
+  background-image: url('https://res.cloudinary.com/dzsnl7ocm/image/upload/c_scale,h_722,w_1536/v1550693598/fantasy-bookshelf.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+header {
+  margin-bottom: 7px;
+  color: black;
+}
+
+#testAPI {
+  position: fixed;
+  top: 10px;
+  right: -10%;
+  font-size: 1.15em;
+  color: var(--color-gray);
+}
+
+#testAPI:hover {
+  color: darkslategray;
+  transition: color 300ms ease-out;
+}
+
+#displaySection {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center; 
+  position: absolute;
+  top: var(--list-top);
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  height: calc(99% - var(--list-top));
+}
+
+#bookList {
+  border-collapse: separate !important;
+  border-spacing: 3px;
+  width: var(--table-width);
+}
+
+#tableWrapper {
+  height: 98%;
+  overflow-y: auto;
+}
+
+td {
+  border: 1px solid darkslategray;
+  padding: 4px;
+  padding-left: 6px;
+  border-radius: 7px;
+}
+
+.bookLink {
+  display: block;
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid var(--color-blue);
+  border-top: 1px solid var(--color-blue);
+  transition: color 275ms ease-out;
+}
+
+.title:hover, .booklink:hover {
+  color: var(--color-yellow);
+  background-color: darkslategray;
+  transition: color 275ms ease-out;
+}
+
+.title{
+  width: 87%;
+  background-color: var(--color-maroon);
+}
+
+form {
+  padding: 5px;
+}
+
+input {
+  padding: 3px;
+}
+
+.btn {
+  margin-top: 5px;
+  padding: 3px;
+  width: 120px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  box-shadow: 2px 2px 8px darkslategray;
+}
+
+.btn:hover{
+  color: var(--color-yellow);
+  background-color: var(--color-blue);
+  box-shadow: inset 2px 2px 5px dimgray;
+}  
+
+.icons {
+  color: var(--color-gray);
+}
+
+.icons:hover {
+  color: var(--color-yellow);
+}
+
+/* The pop up comment form */
+#commentBox {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 50%;
+  top: 80px;
+  width: 50%; 
+  transform: translate(-50%, 0);
+  border: 2px solid var(--color-maroon);
+  border-radius: 5px;
+  background-color: var(--color-background);
+  color: white;
+  padding: 8px;
+  max-height: 70%;
+  overflow-y: auto;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-timing-function: ease-out;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;    
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
+  color: var(--color-yellow);
+}
+
+#formContainer{
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-row-gap: 4px;
+}
+
+.label{
+  display: inline-block;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+#newComment {
+  margin-top: 5px;
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: darkslategray; 
+  font-weight: bold; 
+  font-size: 20px;
+  display: inline-block; /* Needed to add space between the bullet and the text */ 
+  width: 1em; /* Also needed for space */
+  margin-left: 0.15em; /* Also needed for space */
+}
+
+#dialogOverlay {
+  display: none;
+  opacity: 0.6;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: #FFF;
+  z-index: 10;
+  width: 100%;
+}
+
+#dialogBox {
+  display: none;
+  position: fixed;
+  border-radius: 4px;
+  background: var(--color-gray);
+  z-index: 12;
+  width: 500px;
+}
+
+#dialogBoxHead {
+  background: var(--color-background);
+  margin: 3px 2px 2px;
+  text-align: left;
+  padding: 3px 8px;
+  font-weight: bold;
+  border-radius: 3px 3px 0px 0px;
+}
+
+#dialogBoxBody {
+  background: var(--color-maroon);
+  padding: 10px;
+  color: var(--color-yellow);
+  margin: 2px 2px;
+  word-wrap: break-word;
+  font-size: 0.9em;
+}
+
+#dialogBoxFoot {
+  background: var(--color-background);
+  margin: 2px;
+  text-align: right;
+  padding: 3px 8px;
+  border-radius: 0px 0px 3px 3px;
+}

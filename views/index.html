@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>FCC ISQA Project - Personal Library</title>
+    <meta name="description" content="Personal Library">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" 
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="container">
+      <div id="displaySection">
+        <header>
+          <h1>Personal Library</h1>
+        </header>
+        <a id="testAPI" href="/testAPI.html">Test API</a>
+        <div id="tableWrapper">
+          <table id="bookList">
+          </table>
+        </div>
+        <form id="newBook" method="post">
+          <input type="text" name="title" placeholder="*Book Title" style="width: 500px; margin-bottom: 3px;" required><br>
+          <button id="addBook" class="btn" type="submit">Add New Book</button>
+          <button id="deleteBooks" class="btn">Delete All Books</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- //// comment box //// -->
+    <center>
+      <div id="commentBox">
+        <div>
+          <span class="close">&times;</span>
+        </div>
+        <div id="commentForm">
+          <form id="newComment" method="post">
+            <div id="formContainer">
+              <div class="label bold">
+                <label for="title">Title:</label>
+              </div>
+              <div style="text-align:left" class="bold">
+                <span id="title" style="padding-left: 10px"></span>
+              </div>
+               <div class="label bold">
+                <label for="book_id">Book Id:</label>
+              </div>
+              <div style="text-align:left" class="bold">
+                <span id="book_id" style="padding-left: 10px"></span>
+              </div>
+              <div class="label view">
+                <label for="comment">*Comment:</label>
+              </div>
+              <div class="view">
+                <input type="text" id="comment" name="comment" placeholder="*Comment" required style="width: 95%">  
+              </div>
+            </div>
+            <button type="reset" id="comment_reset" class="btn view">Clear</button>&nbsp;&nbsp;
+            <button type="submit" id="comment_submit" class="btn view">Add Comment</button>
+          </form>
+        </div>
+        <div>
+          <br><hr>
+          <h3 id="commentHeader" class="bold">Comments</h3>
+          <div style="text-align:left">
+            <ul id="commentList">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </center>
+
+    
+    <!--/////// Custom Dialog boxes  ////// -->
+    <div id="dialogOverlay"></div>
+    <div id="dialogBox">  
+        <div id="dialogBoxHead"></div>
+        <div id="dialogBoxBody"></div>
+        <div id="dialogBoxFoot"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="/util/dialog.js"></script> 
+    <script src="/public/client.js"></script> 
+  </body>
+</html>

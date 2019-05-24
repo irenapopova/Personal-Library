@@ -1,0 +1,102 @@
+:root {
+  --color-background: #7c6d6b;
+  --color-yellow: #f0e400;
+  --color-gray: #d9d9d9;
+  --list-top: 20%;
+  --table-width: 600px;
+  --color-maroon: #862d2d;
+  --color-blue: #4d8080;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background);
+  height: 100%;
+}
+
+#container {
+  background-image: url('https://res.cloudinary.com/dzsnl7ocm/image/upload/c_scale,h_722,w_1536/v1550693598/fantasy-bookshelf.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+#displaySection {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: left; 
+  position: absolute;
+  top: var(--list-top);
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  height: calc(99% - var(--list-top));
+  width: 49%;
+}
+
+header {
+  margin-bottom: 7px;
+  color: black;
+}
+
+#back {
+  position: fixed;
+  top: 10px;
+  left: 2%;
+  font-size: 1.15em;
+  color: var(--color-gray);
+}
+
+#back:hover {
+  color: darkslategray;
+  transition: color 300ms ease-out;
+}
+
+#APIheading {
+  margin-top: 7px;
+  color: var(--color-yellow);
+}
+
+.forms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.border {
+  margin: 7px 2px;
+  padding: 5px;
+  border: 2px solid var(--color-maroon);
+  border-radius: 3px;
+  text-align: left;
+  min-width: 49%;
+}
+
+input {
+  padding: 3px;
+  margin: 3px;
+}
+
+.btn {
+  margin-top: 5px;
+  padding: 3px;
+  width: 120px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  box-shadow: 2px 2px 8px darkslategray;
+}
+
+.btn:hover{
+  color: var(--color-yellow);
+  background-color: var(--color-blue);
+  box-shadow: inset 2px 2px 5px dimgray;
+}  
